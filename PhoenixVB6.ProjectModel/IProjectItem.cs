@@ -21,10 +21,6 @@ namespace PhoenixVB6.ProjectModel
 {
 	public interface IProjectItem
 	{
-		int LineNumber { get; }
-
-		string Key { get; }
-
-		string Value { get; }
+		// nothing
 	}
 }

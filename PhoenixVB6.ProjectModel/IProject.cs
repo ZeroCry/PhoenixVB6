@@ -17,6 +17,9 @@
 
 #endregion
 
+using System.Collections;
+using System.Collections.Generic;
+
 namespace PhoenixVB6.ProjectModel
 {
 	public interface IProject
@@ -30,5 +33,7 @@ namespace PhoenixVB6.ProjectModel
 		string Description { get; set; }
 
 		string BinaryName { get; set; }
+
+		IEnumerable<IProjectItem> Items { get; }
 	}
 }

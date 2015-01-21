@@ -44,11 +44,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums.cs" />
-    <Compile Include="IFileProjectItem.cs" />
+    <Compile Include="ILibraryDependency.cs" />
+    <Compile Include="IClassDependency.cs" />
+    <Compile Include="IDependencyFactory.cs" />
     <Compile Include="IProject.cs" />
+    <Compile Include="IProjectContext.cs" />
     <Compile Include="IProjectItem.cs" />
-    <Compile Include="IReferenceProjectItem.cs" />
+    <Compile Include="IProjectItemProvider.cs" />
+    <Compile Include="IProjectDependency.cs" />
+    <Compile Include="IDependency.cs" />
+    <Compile Include="LineInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PhoenixVB6\PhoenixVB6.csproj">
+      <Project>{a3bbaa57-c36c-404e-9a83-cba77fb9037a}</Project>
+      <Name>PhoenixVB6</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

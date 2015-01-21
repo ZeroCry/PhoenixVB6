@@ -25,13 +25,23 @@ namespace PhoenixVB6.ProjectModel
 
 	public enum ProjectType
 	{
-		[Description("Standard EXE")] Exe,
+		[Description("Standard EXE")]
+		Exe,
 
-		[Description("ActiveX EXE")] OleExe,
+		[Description("ActiveX EXE")]
+		OleExe,
 
-		[Description("ActiveX DLL")] OleDll,
+		[Description("ActiveX DLL")]
+		OleDll,
 
-		[Description("ActiveX Control")] Control
+		[Description("ActiveX Control")]
+		Control
+	}
+
+	public enum DependencyType
+	{
+		Reference = 0,
+		Component,
 	}
 
 	public enum DataBindingBehavior
@@ -56,12 +66,16 @@ namespace PhoenixVB6.ProjectModel
 		GlobalSingleUse = 4,
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly",
-			MessageId = "MultiUse")] [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
-				MessageId = "Multi")] MultiUse = 5,
+			MessageId = "MultiUse")]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+MessageId = "Multi")]
+		MultiUse = 5,
 
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly",
-			MessageId = "MultiUse")] [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
-				MessageId = "Multi")] GlobalMultiUse = 6
+			MessageId = "MultiUse")]
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+MessageId = "Multi")]
+		GlobalMultiUse = 6
 	}
 
 	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly",

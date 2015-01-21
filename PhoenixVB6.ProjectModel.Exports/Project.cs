@@ -17,13 +17,20 @@
 
 #endregion
 
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
+using System.IO;
+using System.Linq;
 
 namespace PhoenixVB6.ProjectModel.Exports
 {
-	[Export]
+	[Export(typeof(IProject))]
 	public class Project : IProject
 	{
+		private readonly IList<IProjectItem> mItems = new List<IProjectItem>();
+		private IEnumerable<IProjectItem> mReadOnlyItems;
+
 		#region IProject Members
 
 		public virtual ProjectType Type { get; set; }
@@ -36,6 +43,30 @@ namespace PhoenixVB6.ProjectModel.Exports
 
 		public virtual string BinaryName { get; set; }
 
+		public virtual IEnumerable<IProjectItem> Items
+		{
+			get { return mReadOnlyItems ?? (mReadOnlyItems = new ReadOnlyCollection<IProjectItem>(mItems)); }
+		}
+
+		public virtual IList<IDependency> Dependencies
+		{
+			get { throw new System.NotImplementedException(); }
+		}
+
 		#endregion
 	}
+
+	public class ProjectItemCollectionView<T> : Collection<T>
+		where T : IProjectItem
+	{
+		private readonly IList<IProjectItem> mProjectItems;
+
+		public ProjectItemCollectionView(IList<IProjectItem> projectItems)
+			: base(projectItems.OfType<T>().ToList())
+		{
+			mProjectItems = projectItems;
+		}
+
+	}
+
 }
